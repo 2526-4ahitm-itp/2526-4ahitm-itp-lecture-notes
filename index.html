@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2025-09-15</span>
+<span id="revdate">2025-09-16</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -461,6 +461,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_2025_09_15">2. 2025-09-15</a>
 <ul class="sectlevel2">
 <li><a href="#_projekte">2.1. Projekte</a></li>
+</ul>
+</li>
+<li><a href="#_2025_09_16">3. 2025-09-16</a>
+<ul class="sectlevel2">
+<li><a href="#_authentifizierung_und_autorisierung">3.1. Authentifizierung und Autorisierung</a></li>
 </ul>
 </li>
 </ul>
@@ -528,11 +533,96 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2025_09_16"><a class="anchor" href="#_2025_09_16"></a>3. 2025-09-16</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_authentifizierung_und_autorisierung"><a class="anchor" href="#_authentifizierung_und_autorisierung"></a>3.1. Authentifizierung und Autorisierung</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Statuscodes sind nicht korrekt</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>401 Unauthorized</strong> sollte <strong>unauthenticated</strong> heissen</p>
+</li>
+<li>
+<p><strong>403 Forbidden</strong> sollte <strong>unauthorized</strong> heissen</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_ablauf_einer_http_anfrage"><a class="anchor" href="#_ablauf_einer_http_anfrage"></a>3.1.1. Ablauf einer HTTP Anfrage</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Zugriff auf eine geschützte Ressource durch Request.</p>
+</li>
+<li>
+<p>Server antwortet mit <strong>401 Unauthorized</strong> und fordert Authentifizierung an. Der Client wird an den Keycloak weitergeleitet.</p>
+</li>
+<li>
+<p>Client authentifiziert sich beim Keycloak (z.B. durch Login).</p>
+</li>
+<li>
+<p>Keycloak sendet ein Token (z.B. JWT) an den Client zurück.</p>
+</li>
+<li>
+<p>Client sendet das Token in der nächsten Anfrage an den Server.</p>
+</li>
+<li>
+<p>Server überprüft das Token und gewährt Zugriff auf die Ressource, wenn das Token gültig ist.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_keycloak"><a class="anchor" href="#_keycloak"></a>3.1.2. Keycloak</h4>
+<div class="sect4">
+<h5 id="_realm"><a class="anchor" href="#_realm"></a>Realm</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_user"><a class="anchor" href="#_user"></a>User</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_client"><a class="anchor" href="#_client"></a>Client</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_role"><a class="anchor" href="#_role"></a>Role</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Collection von Rechten</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_group"><a class="anchor" href="#_group"></a>Group</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Collection von Usern</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-09-15 13:08:31 UTC
+Last updated 2025-09-16 07:49:24 UTC
 </div>
 </div>
 </body>

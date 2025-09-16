@@ -1,0 +1,10 @@
+#@BASE=http://localhost:4200/api
+
+### Users ###
+GET {{BASE}}/hello
+
+###
+GET {{BASE}}/posts
+Content-Type: application/json
+
+###

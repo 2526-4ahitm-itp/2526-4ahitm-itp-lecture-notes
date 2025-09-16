@@ -38,6 +38,52 @@ endif::backend-html5[]
 
 
 
+== 2025-09-16
+
+=== Authentifizierung und Autorisierung
+
+* Statuscodes sind nicht korrekt
+
+** *401 Unauthorized* sollte *unauthenticated* heissen
+
+** *403 Forbidden* sollte *unauthorized* heissen
+
+
+==== Ablauf einer HTTP Anfrage
+
+. Zugriff auf eine geschützte Ressource durch Request.
+
+. Server antwortet mit *401 Unauthorized* und fordert Authentifizierung an. Der Client wird an den Keycloak weitergeleitet.
+
+. Client authentifiziert sich beim Keycloak (z.B. durch Login).
+
+. Keycloak sendet ein Token (z.B. JWT) an den Client zurück.
+
+. Client sendet das Token in der nächsten Anfrage an den Server.
+
+. Server überprüft das Token und gewährt Zugriff auf die Ressource, wenn das Token gültig ist.
+
+==== Keycloak
+
+===== Realm
+
+===== User
+
+===== Client
+
+===== Role
+
+* Collection von Rechten
+
+===== Group
+
+* Collection von Usern
+
+
+
+
+
+
 
 
 

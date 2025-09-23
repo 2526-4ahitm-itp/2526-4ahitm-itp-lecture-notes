@@ -85,4 +85,14 @@ public class PostResource {
 
         return post.published() || roles.contains("editor");
     }
+
+
+    @Path("ueberhauptois")
+    @GET
+    public Response ueberhauptois() {
+        var posts = postRepository.listAll();
+        Log.infof("posts: %s", posts);
+        return Response.ok(posts).build();
+    }
+
 }

@@ -85,14 +85,14 @@ endif::backend-html5[]
 === Projektideen Stütz
 
 * Franklyn weiterarbeiten !!!
-* HTL 3D für Elternprechtag
+* HTL 3D für Elternsprechtag
 * LeoIoT
 ** Sensoren in Klassen mit Dashboard
 ** Dashboard für PV-Anlage und Verbräuche der Schule
 * MusicVoting
 * Der sprechende Eisbär (Chatbot mit KI)
 * Datenbank (ev. Backend) für ein Elektroniker Projekt
-* Dashboard mirt Grafana und InfluxDB für eine Mineralölfirma
+* Dashboard mit Grafana und InfluxDB für eine Mineralölfirma
 
 
 === Projektideen Schüler
@@ -112,12 +112,23 @@ endif::backend-html5[]
 
 
 
+== 2025-09-23 Keycloak
+
+IAM ... Identity and Access Management
+
+Keycloak ist ein Softwareprodukt zur Verwaltung von Identitäten und Zugriffsrechten in Anwendungen und Diensten. Es bietet Funktionen wie Single Sign-On (SSO), Benutzerverwaltung, Rollen- und Berechtigungsmanagement sowie Integration mit verschiedenen Authentifizierungsprotokollen wie OAuth2, OpenID Connect und SAML.
+
+
+===
+
+image::reverse-proxy-webpack.png[]
+
+
+https://www.urldecoder.org/
 
 
 
-
-
-
+Die Payload eines tokens ist nicht verschlüsselt jedoch fälschungssicher signiert.
 
 
 

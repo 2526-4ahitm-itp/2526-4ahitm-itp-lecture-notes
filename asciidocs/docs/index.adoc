@@ -131,6 +131,7 @@ Die Payload eines tokens ist nicht verschlüsselt jedoch fälschungssicher signi
 
 
 
+
 * Was ist Keycloak
 ** Keycloak ist eine Open-Source Identity- und Access-Management-Lösung (IAM), die Single Sign-On (SSO) für Anwendungen und Services bereitstellt. Es übernimmt zentrale Aufgaben im Bereich der Authentifizierung und Autorisierung, basierend auf modernen Sicherheitsstandards wie OAuth 2.0, OpenID Connect (OIDC) und SAML 2.0.
 

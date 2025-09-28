@@ -119,7 +119,6 @@ IAM ... Identity and Access Management
 Keycloak ist ein Softwareprodukt zur Verwaltung von Identitäten und Zugriffsrechten in Anwendungen und Diensten. Es bietet Funktionen wie Single Sign-On (SSO), Benutzerverwaltung, Rollen- und Berechtigungsmanagement sowie Integration mit verschiedenen Authentifizierungsprotokollen wie OAuth2, OpenID Connect und SAML.
 
 
-===
 
 image::reverse-proxy-webpack.png[]
 
@@ -130,6 +129,25 @@ https://www.urldecoder.org/
 
 Die Payload eines tokens ist nicht verschlüsselt jedoch fälschungssicher signiert.
 
+
+
+
+* Was ist Keycloak
+** Keycloak ist eine Open-Source Identity- und Access-Management-Lösung (IAM), die Single Sign-On (SSO) für Anwendungen und Services bereitstellt. Es übernimmt zentrale Aufgaben im Bereich der Authentifizierung und Autorisierung, basierend auf modernen Sicherheitsstandards wie OAuth 2.0, OpenID Connect (OIDC) und SAML 2.0.
+
+https://2425-5bhif-wmc.github.io/03-tutorials-sxidn/[Keycloak Authenctication Flows]
+
+https://2425-5bhif-wmc.github.io/03-tutorials-icqun/[Securing Quarkus Backends with Keycloak]
+
+
+
+* CORS (Cross-Origin-Ressource-Sharing)
+** CORS (Cross-Origin Resource Sharing) ist ein Sicherheitsmechanismus in Webbrowsern, der den Zugriff von Webanwendungen auf Ressourcen über Domänengrenzen hinweg regelt.
+
+image::cors.png[]
+
+* Was ist Kubernetes?
+** Kubernetes ist ein Container-Orchestrierungstool, welches dafür sorgt , dass Container automatisch gestartet, überwacht, skaliert und im Fehlerfall neu gestartet werden.
 
 
 

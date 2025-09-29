@@ -84,23 +84,27 @@ endif::backend-html5[]
 
 === Projektideen Stütz
 
-* Franklyn weiterarbeiten !!!
-* HTL 3D für Elternsprechtag
-* LeoIoT
+* Franklyn: Lehreraccounts, KI-Detektion, ev. weitere Funktionen wie aufzeigen
+** Clemens, Jakob, Eldin, Gregor
+* LeoIoT Jonas, Daniel L, Paul, Elias, Stefan
 ** Sensoren in Klassen mit Dashboard
 ** Dashboard für PV-Anlage und Verbräuche der Schule
+* Trainingsplaner (Paul, Elias, Daniel L.)
+* HTL 3D für Elternsprechtag
 * MusicVoting
+** Miriam, Simone, Marlies
 * Der sprechende Eisbär (Chatbot mit KI)
-* Datenbank (ev. Backend) für ein Elektroniker Projekt
 * Dashboard mit Grafana und InfluxDB für eine Mineralölfirma
+** Hanan
+** Almin
+* FPV-Drohnen Assistent (David, Simon)
 
 
 === Projektideen Schüler
 
+* https://hackaday.io/project/191181-electromechanical-refreshable-braille-module/details[Brailleleiste]
 * Lernplattform (Hanan) vgl. Code Academy
 * HÜ-Planer (Clemens, Jakob)
-* Trainingsplaner (Paul, Elias, Daniel S.)
-* FPV-Drohnen Assistent (David, Simon)
 * Whatsapp-Alternative (Miriam)
 * SOS-Taschenrechner (Daniel R.)
 

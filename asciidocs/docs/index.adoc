@@ -153,6 +153,69 @@ image::cors.png[]
 * Was ist Kubernetes?
 ** Kubernetes ist ein Container-Orchestrierungstool, welches dafür sorgt , dass Container automatisch gestartet, überwacht, skaliert und im Fehlerfall neu gestartet werden.
 
+== 2025-10-07
+
+=== Pure Web
+
+----
+ npm create vite
+----
+
+* Wir verwenden Vite als Build-Tool (Bundler)
+** https://vitejs.dev/guide/
+** Erstellt ein großes javascript file mit allen Abhängigkeiten.
+** Unterstützt auch React, Vue, Svelte, ...
+** Einfacher zu konfigurieren als Webpack
+** Vergleichbar mit `webpack`
+
+* package-lock.json zu .gitignore hinzufügen
+
+
+* Model erstellen
+
+
+==== Proxy einrichten
+
+
+https://vite.dev/config/server-options.html#server-proxy
+
+https://vite.dev/config/server-options
+
+
+==== Warum Typescript Module?
+
+* Auf einer herkömmlichen Website wird alles javascript direkt im globalen Scope ausgeführt. Eigener Code im globalen Scope kann leicht mit fremdem Code kollidieren (z.B. Bibliotheken) und ist daher unwartbar.
+
+* Deshalb werden Typescript Module verwendet. Diese haben ihren eigenen Scope und kollidieren nicht mit anderem Code.
+
+image::typemodule.png[]
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+
+
+==== Model
+
+* Das Model ist die Wahrheit, die reine Wahrheit und nichts als die Wahrhei -> Single Source of truth
+
+* Das Aussehen des Bildschirms wird *AUSSCHLIESSLICH* durch das Model bestimmt. In der GUI werden keine Zustände gespeichert.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

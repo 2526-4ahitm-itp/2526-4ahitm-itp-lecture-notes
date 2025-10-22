@@ -200,10 +200,21 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 * Das Aussehen des Bildschirms wird *AUSSCHLIESSLICH* durch das Model bestimmt. In der GUI werden keine Zustände gespeichert.
 
+== 2025-10-21
+
+=== Trennung von Layout und Daten
+
+==== MVC
+
+==== MVVM
 
 
+IMPORTANT: Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit und nichts als die Wahrheit.
 
 
+* Problem: Wir sollten die Daten nicht in den Komponenten speichern.
+
+* Abhilfe: Die Daten sollten zentral gespeichert werden -> store
 
 
 

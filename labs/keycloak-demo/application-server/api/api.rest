@@ -9,13 +9,21 @@ Content-Type: application/json
 
 ###
 
+GET {{BASE}}/.well-known/openid-configuration
+Accept: application/json
+
+> {%
+    client.global.set("well-known-url", response.body.token_endpoint);
+    client.log("Well-Known-URL: " + client.global.get("well-known-url"));
+%}
+
 ### get access token
 
-POST https://auth.htl-leonding.ac.at/realms/htlleonding/protocol/openid-connect/token
+POST {{well-known-url}}
 Content-Type: application/x-www-form-urlencoded
 
-client_id = htlleonding-service &
-client_secret = rmDAPoC71cELHwgPan5ybDnMNFY3VjsX &
+client_id = backend &
+client_secret = o1BWGJt5QlS0D3yn9HtLXXWI5W6DqjxL &
 grant_type = password &
 username = {{username}} &
 password = {{password}} &
@@ -24,14 +32,20 @@ password = {{password}} &
 scope = openid
 
 > {%
-    client.global.set("auth_token", response.body.access_token);
-    client.log("Bearer: " + client.global.get("auth_token"));
+    client.global.set("access_token", response.body.access_token);
+    client.log("Bearer: " + client.global.get("access_token"));
 %}
 
 ###
 
-GET https://auth.htl-leonding.ac.at/realms/htlleonding/protocol/openid-connect/userinfo
+GET http://localhost:8080/api/posts
+Accept: application/json
+Authorization: Bearer {{access_token}}
+
+###
+
+GET https://localhost:8080/realms/demo/protocol/openid-connect/userinfo
 Content-Type: application/json
-Authorization: Bearer {{auth_token}}
+Authorization: Bearer {{access_token}}
 
 ###

@@ -36,3 +36,5 @@ Temporary Items
 dist/
 docs/slides/revealjs
 .idea/
+/asciidocs/docs/index.html
+/labs/keycloak-demo/application-server/requests.zip

@@ -11,6 +11,7 @@ import at.ac.htl.leonding.demo.Mapper;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import io.quarkus.logging.Log;
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.json.JsonString;
@@ -65,13 +66,13 @@ public class PostResource {
     ClaimValue<Map<String, List<JsonString>>> realmAccess;
 
     @GET
-    @PermitAll
+    @RolesAllowed("admin")
     public List<Post> all() {
         return postRepository
             .listAll()
             .stream()
             .map(mapper::toResource)
-            .filter(this::amIallowedToSeeThis)
+            //.filter(this::amIallowedToSeeThis)
             .toList();
     }
     boolean amIallowedToSeeThis(Post post) {
@@ -87,12 +88,12 @@ public class PostResource {
     }
 
 
-    @Path("ueberhauptois")
-    @GET
-    public Response ueberhauptois() {
-        var posts = postRepository.listAll();
-        Log.infof("posts: %s", posts);
-        return Response.ok(posts).build();
-    }
+//    @Path("ueberhauptois")
+//    @GET
+//    public Response ueberhauptois() {
+//        var posts = postRepository.listAll();
+//        Log.infof("posts: %s", posts);
+//        return Response.ok(posts).build();
+//    }
 
 }

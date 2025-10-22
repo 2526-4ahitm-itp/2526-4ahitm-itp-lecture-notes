@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2025-10-13</span>
+<span id="revdate">2025-10-22</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -476,6 +476,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_2025_09_23_keycloak">5. 2025-09-23 Keycloak</a></li>
+<li><a href="#_2025_10_07">6. 2025-10-07</a>
+<ul class="sectlevel2">
+<li><a href="#_pure_web">6.1. Pure Web</a></li>
+</ul>
+</li>
+<li><a href="#_2025_10_21">7. 2025-10-21</a>
+<ul class="sectlevel2">
+<li><a href="#_trennung_von_layout_und_daten">7.1. Trennung von Layout und Daten</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -813,11 +823,136 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2025_10_07"><a class="anchor" href="#_2025_10_07"></a>6. 2025-10-07</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_pure_web"><a class="anchor" href="#_pure_web"></a>6.1. Pure Web</h3>
+<div class="listingblock">
+<div class="content">
+<pre> npm create vite</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wir verwenden Vite als Build-Tool (Bundler)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://vitejs.dev/guide/" class="bare">https://vitejs.dev/guide/</a></p>
+</li>
+<li>
+<p>Erstellt ein großes javascript file mit allen Abhängigkeiten.</p>
+</li>
+<li>
+<p>Unterstützt auch React, Vue, Svelte, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Einfacher zu konfigurieren als Webpack</p>
+</li>
+<li>
+<p>Vergleichbar mit <code>webpack</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>package-lock.json zu .gitignore hinzufügen</p>
+</li>
+<li>
+<p>Model erstellen</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_proxy_einrichten"><a class="anchor" href="#_proxy_einrichten"></a>6.1.1. Proxy einrichten</h4>
+<div class="paragraph">
+<p><a href="https://vite.dev/config/server-options.html#server-proxy" class="bare">https://vite.dev/config/server-options.html#server-proxy</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://vite.dev/config/server-options" class="bare">https://vite.dev/config/server-options</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_warum_typescript_module"><a class="anchor" href="#_warum_typescript_module"></a>6.1.2. Warum Typescript Module?</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Auf einer herkömmlichen Website wird alles javascript direkt im globalen Scope ausgeführt. Eigener Code im globalen Scope kann leicht mit fremdem Code kollidieren (z.B. Bibliotheken) und ist daher unwartbar.</p>
+</li>
+<li>
+<p>Deshalb werden Typescript Module verwendet. Diese haben ihren eigenen Scope und kollidieren nicht mit anderem Code.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/typemodule.png" alt="typemodule">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" class="bare">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_model"><a class="anchor" href="#_model"></a>6.1.3. Model</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Das Model ist die Wahrheit, die reine Wahrheit und nichts als die Wahrhei &#8594; Single Source of truth</p>
+</li>
+<li>
+<p>Das Aussehen des Bildschirms wird <strong>AUSSCHLIESSLICH</strong> durch das Model bestimmt. In der GUI werden keine Zustände gespeichert.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_10_21"><a class="anchor" href="#_2025_10_21"></a>7. 2025-10-21</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_trennung_von_layout_und_daten"><a class="anchor" href="#_trennung_von_layout_und_daten"></a>7.1. Trennung von Layout und Daten</h3>
+<div class="sect3">
+<h4 id="_mvc"><a class="anchor" href="#_mvc"></a>7.1.1. MVC</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_mvvm"><a class="anchor" href="#_mvvm"></a>7.1.2. MVVM</h4>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit und nichts als die Wahrheit.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Problem: Wir sollten die Daten nicht in den Komponenten speichern.</p>
+</li>
+<li>
+<p>Abhilfe: Die Daten sollten zentral gespeichert werden &#8594; store</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-10-13 10:31:40 UTC
+Last updated 2025-10-22 07:51:37 UTC
 </div>
 </div>
 </body>

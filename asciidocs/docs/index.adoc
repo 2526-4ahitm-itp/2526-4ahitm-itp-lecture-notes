@@ -218,11 +218,24 @@ IMPORTANT: Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine 
 
 
 
+== 2025-11-04
+
+image::tests-in-projekten.png[]
 
 
 
 
+== 2025-11-10
 
+=== Backlog mit User Stories
+
+Jede Gruppe muss ein Backlog erstellen, in dem alle User Stories für das Projekt gesammelt werden. Dabei ist zu beachten, dass die User Stories klein genug sind, um in einem Sprint umgesetzt werden zu können. Auch sind nur wenige User Stories detailliert auszuarbeiten, die meisten sollten nur grob beschrieben werden, da diese erst späte im Projekt detailliert werden.
+
+https://docs.github.com/de/issues
+
+=== Systemarchitektur
+
+Abgeleitet vom Backlog ist ein erster entwurf der Systemarchitektur zu erstellen. Dabei sind die wichtigsten Komponenten des Systems zu identifizieren und deren Zusammenspiel zu beschreiben. Auch sind die wichtigsten Technologien und Frameworks zu benennen, die im Projekt verwendet werden sollen.
 
 
 

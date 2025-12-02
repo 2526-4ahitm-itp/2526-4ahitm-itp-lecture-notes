@@ -238,6 +238,59 @@ https://docs.github.com/de/issues
 Abgeleitet vom Backlog ist ein erster entwurf der Systemarchitektur zu erstellen. Dabei sind die wichtigsten Komponenten des Systems zu identifizieren und deren Zusammenspiel zu beschreiben. Auch sind die wichtigsten Technologien und Frameworks zu benennen, die im Projekt verwendet werden sollen.
 
 
+== 2025-12-02 [Hanan Mehic]
+
+=== Kubernetes
+
+image::kubectl.png[]
+
+.YAML-Konfigurationsdatei für Kubernetes.
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "demo"
+            - name: POSTGRES_USER
+              value: "demo"
+            - name: POSTGRES_DB
+              value: "demo"
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+
+----
+
+=== Port Forwarding
+- Port Forwarding ist eine Netzwerktechnik,
+die es ermöglicht, eingehende Datenpakete,
+die an einer bestimmten Adresse und einem externen Port ankommen,
+zu einem bestimmten Gerät und einem internen Port im privaten Netzwerk umzuleiten.
+Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch eine Firewall verborgen sind.
+
+
 
 
 

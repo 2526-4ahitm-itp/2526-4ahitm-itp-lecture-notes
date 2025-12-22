@@ -238,6 +238,46 @@ https://docs.github.com/de/issues
 Abgeleitet vom Backlog ist ein erster entwurf der Systemarchitektur zu erstellen. Dabei sind die wichtigsten Komponenten des Systems zu identifizieren und deren Zusammenspiel zu beschreiben. Auch sind die wichtigsten Technologien und Frameworks zu benennen, die im Projekt verwendet werden sollen.
 
 
+== 2025-12-22
+
+=== Teststrategien
+
+* Vorgehen zum Auswählen von Testfällen
+
+* Äquivalenzklassen
+* Grenzwertanalyse
+
+
+image::testen-einer-methode.png[]
+
+image::testen-aequivalenzklassenmethode.png[]
+
+image::testen-grenzwertanalyse.png[]
+
+
+Testobjekte:
+* Black-Box-Tests
+* White-Box-Tests
+* Gray-Box-Tests
+
+
+==== Testaufbau
+
+* Arrange - Act- Assert (AAA-Pattern)
+* Given - When - Then (GWT-Pattern)
+
+
+* Mock
+** Mocking bedeutet täuschen oder vortäuschen
+** Ein Mock-Objekt ist ein Objekt, das das Verhalten eines echten Objekts simuliert.
+** Mocks werden verwendet, um Abhängigkeiten zu isolieren und kontrollierte Testumgebungen zu schaffen.
+** Bibliotheken: Mockito, JMock, EasyMock
+
+** Mock Objekte können auch Stubs oder Spies sein.
+*** Ein Stub ist ein einfaches Mock-Objekt, das vordefinierte Antworten auf Methodenaufrufe zurückgibt.
+*** Ein Spy ist ein Mock-Objekt, das das Verhalten eines echten Objekts überwacht und aufzeichnet.
+
+* https://phauer.com/2019/modern-best-practices-testing-java/[Philipp Hauer's Blog - Modern Best Practices for Testing in Java^]
 
 
 

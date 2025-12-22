@@ -451,7 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2025-11-10</span>
+<span id="revdate">2025-12-22</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -491,6 +491,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_backlog_mit_user_stories">9.1. Backlog mit User Stories</a></li>
 <li><a href="#_systemarchitektur">9.2. Systemarchitektur</a></li>
+</ul>
+</li>
+<li><a href="#_2025_12_22">10. 2025-12-22</a>
+<ul class="sectlevel2">
+<li><a href="#_teststrategien">10.1. Teststrategien</a></li>
 </ul>
 </li>
 </ul>
@@ -985,11 +990,101 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2025_12_22"><a class="anchor" href="#_2025_12_22"></a>10. 2025-12-22</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_teststrategien"><a class="anchor" href="#_teststrategien"></a>10.1. Teststrategien</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Vorgehen zum Auswählen von Testfällen</p>
+</li>
+<li>
+<p>Äquivalenzklassen</p>
+</li>
+<li>
+<p>Grenzwertanalyse</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/testen-einer-methode.png" alt="testen einer methode">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/testen-aequivalenzklassenmethode.png" alt="testen aequivalenzklassenmethode">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/testen-grenzwertanalyse.png" alt="testen grenzwertanalyse">
+</div>
+</div>
+<div class="paragraph">
+<p>Testobjekte:
+* Black-Box-Tests
+* White-Box-Tests
+* Gray-Box-Tests</p>
+</div>
+<div class="sect3">
+<h4 id="_testaufbau"><a class="anchor" href="#_testaufbau"></a>10.1.1. Testaufbau</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arrange - Act- Assert (AAA-Pattern)</p>
+</li>
+<li>
+<p>Given - When - Then (GWT-Pattern)</p>
+</li>
+<li>
+<p>Mock</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Mocking bedeutet täuschen oder vortäuschen</p>
+</li>
+<li>
+<p>Ein Mock-Objekt ist ein Objekt, das das Verhalten eines echten Objekts simuliert.</p>
+</li>
+<li>
+<p>Mocks werden verwendet, um Abhängigkeiten zu isolieren und kontrollierte Testumgebungen zu schaffen.</p>
+</li>
+<li>
+<p>Bibliotheken: Mockito, JMock, EasyMock</p>
+</li>
+<li>
+<p>Mock Objekte können auch Stubs oder Spies sein.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ein Stub ist ein einfaches Mock-Objekt, das vordefinierte Antworten auf Methodenaufrufe zurückgibt.</p>
+</li>
+<li>
+<p>Ein Spy ist ein Mock-Objekt, das das Verhalten eines echten Objekts überwacht und aufzeichnet.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="https://phauer.com/2019/modern-best-practices-testing-java/" target="_blank" rel="noopener">Philipp Hauer&#8217;s Blog - Modern Best Practices for Testing in Java</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-11-10 11:40:25 UTC
+Last updated 2025-12-22 19:26:20 UTC
 </div>
 </div>
 </body>

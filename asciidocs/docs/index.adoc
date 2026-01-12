@@ -279,6 +279,32 @@ Testobjekte:
 
 * https://phauer.com/2019/modern-best-practices-testing-java/[Philipp Hauer's Blog - Modern Best Practices for Testing in Java^]
 
+image::testebenen.png[]
+
+
+== 2026-01-12
+
+=== Testen des Backends
+
+* Unit-Tests (assertj-core)
+* Integrationstests (assertj-db)
+
+siehe im Ordner `labs` das Projekt `testen`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

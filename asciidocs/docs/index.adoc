@@ -291,7 +291,107 @@ image::testebenen.png[]
 
 siehe im Ordner `labs` das Projekt `testen`.
 
+== 2026-01-20
 
+=== API Testing mit httpyac
+
+Um API-Endpunkte automatisiert und reproduzierbar zu testen, verwenden wir das Tool `httpyac`.
+
+==== Installation und Setup
+Die Installation erfolgt lokal im Projektverzeichnis (Ordner `api`), um globale Abhängigkeiten zu vermeiden.
+
+[source,bash]
+----
+# Initialisierung des API-Ordners
+cd api
+npm init -y
+
+# Lokale Installation von httpyac
+npm install httpyac
+----
+
+==== Erstellen von Requests
+Requests werden in einer `.http` Datei definiert. Mit `??` werden Test-Assertions direkt unter dem Request eingefügt.
+
+[source,http]
+----
+# @name clients
+GET http://localhost:8080/clients
+?? status == 200
+----
+
+==== Automatisierung (package.json)
+Um die Tests einfach über die CLI zu starten, wird ein Script in der `package.json` hinterlegt:
+
+[source,json]
+----
+"scripts": {
+  "test": "httpyac --send --all --bail request.http"
+}
+----
+
+Der Aufruf erfolgt dann mittels:
+[source,bash]
+----
+npm test
+----
+
+==== Konfiguration mit Variablen
+Für unterschiedliche Umgebungen wird eine `http-client.config.js` erstellt. In der `request.http` kann dann die Variable `{{host}}` statt `localhost:8080` verwendet werden.
+
+=== Code Coverage mit JaCoCo
+
+JaCoCo (Java Code Coverage) misst, wie viel Prozent des Codes durch Tests tatsächlich ausgeführt werden.
+
+==== Konfiguration Quarkus
+Die Integration erfolgt über die `pom.xml` und die `application.properties`.
+
+[source,xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-jacoco</artifactId>
+  <scope>test</scope>
+</dependency>
+----
+
+In den `application.properties` muss das Paket-Format umgestellt werden, um auch Integration-Tests korrekt zu erfassen:
+[source,properties]
+----
+quarkus.package.type=uber-jar
+----
+
+==== Ausführung
+Die Reports werden beim Build-Prozess generiert:
+
+[source,bash]
+----
+mvn package
+# Starten mit JaCoCo Agent (falls Integrationstests manuell geprüft werden)
+java -jar target/*-runner.jar
+----
+
+Der fertige Report ist als interaktive Webseite unter `target/jacoco-report/index.html` verfügbar.
+
+
+
+=== Test-Strategie (Prof. Aberger)
+
+* **Code Coverage Ziel:** Ein Abdeckungsgrad von ca. **80%** wird angestrebt.
+* **Sinn des Testens:** Die Abdeckung ist der Hauptgrund für das Testing, um die Stabilität bei Refactorings zu gewährleisten.
+* **Code Design:** Verwendung von Expressions (z.B. Switch-Expression mit `return`) statt Statements erhöht die Testbarkeit und Übersichtlichkeit.
+** Unnötige Getter und Setter sollten vermieden werden (Datenklassen/Records), da diese die Coverage-Statistik verfälschen (Boilerplate-Code ohne Logik).
+
+[source,java]
+----
+// Effizientes Design: Expression statt Statement
+public String resolve(int code) {
+    return switch (code) {
+        case 200 -> "OK";
+        default -> "Error";
+    };
+}
+----
 
 
 

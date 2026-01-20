@@ -281,7 +281,6 @@ Testobjekte:
 
 image::testebenen.png[]
 
-
 == 2026-01-12
 
 === Testen des Backends

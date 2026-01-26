@@ -436,6 +436,120 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -451,7 +565,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-01-12</span>
+<span id="revdate">2026-01-26</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -493,14 +607,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_systemarchitektur">9.2. Systemarchitektur</a></li>
 </ul>
 </li>
-<li><a href="#_2025_12_22">10. 2025-12-22</a>
+<li><a href="#_2025_12_02_hanan_mehic">10. 2025-12-02 [Hanan Mehic]</a>
 <ul class="sectlevel2">
-<li><a href="#_teststrategien">10.1. Teststrategien</a></li>
-</ul>
-</li>
-<li><a href="#_2026_01_12">11. 2026-01-12</a>
-<ul class="sectlevel2">
-<li><a href="#_testen_des_backends">11.1. Testen des Backends</a></li>
+<li><a href="#_kubernetes">10.1. Kubernetes</a></li>
+<li><a href="#_port_forwarding">10.2. Port Forwarding</a></li>
 </ul>
 </li>
 </ul>
@@ -996,117 +1106,66 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2025_12_22"><a class="anchor" href="#_2025_12_22"></a>10. 2025-12-22</h2>
+<h2 id="_2025_12_02_hanan_mehic"><a class="anchor" href="#_2025_12_02_hanan_mehic"></a>10. 2025-12-02 [Hanan Mehic]</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_teststrategien"><a class="anchor" href="#_teststrategien"></a>10.1. Teststrategien</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Vorgehen zum Auswählen von Testfällen</p>
-</li>
-<li>
-<p>Äquivalenzklassen</p>
-</li>
-<li>
-<p>Grenzwertanalyse</p>
-</li>
-</ul>
-</div>
+<h3 id="_kubernetes"><a class="anchor" href="#_kubernetes"></a>10.1. Kubernetes</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/testen-einer-methode.png" alt="testen einer methode">
+<img src="images/kubectl.png" alt="kubectl">
 </div>
 </div>
-<div class="imageblock">
+<div class="listingblock">
+<div class="title">YAML-Konfigurationsdatei für Kubernetes.</div>
 <div class="content">
-<img src="images/testen-aequivalenzklassenmethode.png" alt="testen aequivalenzklassenmethode">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/testen-grenzwertanalyse.png" alt="testen grenzwertanalyse">
-</div>
-</div>
-<div class="paragraph">
-<p>Testobjekte:
-* Black-Box-Tests
-* White-Box-Tests
-* Gray-Box-Tests</p>
-</div>
-<div class="sect3">
-<h4 id="_testaufbau"><a class="anchor" href="#_testaufbau"></a>10.1.1. Testaufbau</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arrange - Act- Assert (AAA-Pattern)</p>
-</li>
-<li>
-<p>Given - When - Then (GWT-Pattern)</p>
-</li>
-<li>
-<p>Mock</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Mocking bedeutet täuschen oder vortäuschen</p>
-</li>
-<li>
-<p>Ein Mock-Objekt ist ein Objekt, das das Verhalten eines echten Objekts simuliert.</p>
-</li>
-<li>
-<p>Mocks werden verwendet, um Abhängigkeiten zu isolieren und kontrollierte Testumgebungen zu schaffen.</p>
-</li>
-<li>
-<p>Bibliotheken: Mockito, JMock, EasyMock</p>
-</li>
-<li>
-<p>Mock Objekte können auch Stubs oder Spies sein.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Ein Stub ist ein einfaches Mock-Objekt, das vordefinierte Antworten auf Methodenaufrufe zurückgibt.</p>
-</li>
-<li>
-<p>Ein Spy ist ein Mock-Objekt, das das Verhalten eines echten Objekts überwacht und aufzeichnet.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="https://phauer.com/2019/modern-best-practices-testing-java/" target="_blank" rel="noopener">Philipp Hauer&#8217;s Blog - Modern Best Practices for Testing in Java</a></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/testebenen.png" alt="testebenen">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:16-alpine</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">5432</span>
+          <span class="na">env</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_PASSWORD</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_USER</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_DB</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+          <span class="na">volumeMounts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-storage</span>
+              <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/lib/postgresql/data</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-storage</span>
+          <span class="na">persistentVolumeClaim</span><span class="pi">:</span>
+            <span class="na">claimName</span><span class="pi">:</span> <span class="s">postgres-pvc</span></code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_2026_01_12"><a class="anchor" href="#_2026_01_12"></a>11. 2026-01-12</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_testen_des_backends"><a class="anchor" href="#_testen_des_backends"></a>11.1. Testen des Backends</h3>
+<h3 id="_port_forwarding"><a class="anchor" href="#_port_forwarding"></a>10.2. Port Forwarding</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Unit-Tests (assertj-core)</p>
-</li>
-<li>
-<p>Integrationstests (assertj-db)</p>
+<p>Port Forwarding ist eine Netzwerktechnik,
+die es ermöglicht, eingehende Datenpakete,
+die an einer bestimmten Adresse und einem externen Port ankommen,
+zu einem bestimmten Gerät und einem internen Port im privaten Netzwerk umzuleiten.
+Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch eine Firewall verborgen sind.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>siehe im Ordner <code>labs</code> das Projekt <code>testen</code>.</p>
 </div>
 </div>
 </div>
@@ -1115,7 +1174,7 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-01-12 11:40:50 UTC
+Last updated 2026-01-26 21:36:42 UTC
 </div>
 </div>
 </body>

@@ -607,23 +607,29 @@ pre.rouge .gs {
 <li><a href="#_systemarchitektur">9.2. Systemarchitektur</a></li>
 </ul>
 </li>
-<li><a href="#_2025_12_22">10. 2025-12-22</a>
+<li><a href="#_2025_12_02_hanan_mehic">10. 2025-12-02 [Hanan Mehic]</a>
 <ul class="sectlevel2">
-<li><a href="#_teststrategien">10.1. Teststrategien</a></li>
+<li><a href="#_kubernetes">10.1. Kubernetes</a></li>
+<li><a href="#_port_forwarding">10.2. Port Forwarding</a></li>
 </ul>
 </li>
-<li><a href="#_2026_01_12">11. 2026-01-12</a>
+<li><a href="#_2025_12_22">11. 2025-12-22</a>
 <ul class="sectlevel2">
-<li><a href="#_testen_des_backends">11.1. Testen des Backends</a></li>
+<li><a href="#_teststrategien">11.1. Teststrategien</a></li>
 </ul>
 </li>
-<li><a href="#_2026_01_20">12. 2026-01-20</a>
+<li><a href="#_2026_01_12">12. 2026-01-12</a>
 <ul class="sectlevel2">
-<li><a href="#_api_testing_mit_httpyac">12.1. API Testing mit httpyac</a></li>
-<li><a href="#_code_coverage_mit_jacoco">12.2. Code Coverage mit JaCoCo</a></li>
-<li><a href="#_test_strategie_prof_aberger">12.3. Test-Strategie (Prof. Aberger)</a></li>
-<li><a href="#_kubernetes">12.4. Kubernetes</a></li>
-<li><a href="#_port_forwarding">12.5. Port Forwarding</a></li>
+<li><a href="#_testen_des_backends">12.1. Testen des Backends</a></li>
+</ul>
+</li>
+<li><a href="#_2026_01_20_a_mahmutovic">13. 2026-01-20 [A. Mahmutovic]</a>
+<ul class="sectlevel2">
+<li><a href="#_api_testing_mit_httpyac">13.1. API Testing mit httpyac</a></li>
+<li><a href="#_code_coverage_mit_jacoco">13.2. Code Coverage mit JaCoCo</a></li>
+<li><a href="#_test_strategie_prof_aberger">13.3. Test-Strategie (Prof. Aberger)</a></li>
+<li><a href="#_kubernetes_2">13.4. Kubernetes</a></li>
+<li><a href="#_port_forwarding_2">13.5. Port Forwarding</a></li>
 </ul>
 </li>
 </ul>
@@ -1119,10 +1125,75 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2025_12_22"><a class="anchor" href="#_2025_12_22"></a>10. 2025-12-22</h2>
+<h2 id="_2025_12_02_hanan_mehic"><a class="anchor" href="#_2025_12_02_hanan_mehic"></a>10. 2025-12-02 [Hanan Mehic]</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_teststrategien"><a class="anchor" href="#_teststrategien"></a>10.1. Teststrategien</h3>
+<h3 id="_kubernetes"><a class="anchor" href="#_kubernetes"></a>10.1. Kubernetes</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/kubectl.png" alt="kubectl">
+</div>
+</div>
+<div class="listingblock">
+<div class="title">YAML-Konfigurationsdatei für Kubernetes.</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:16-alpine</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">5432</span>
+          <span class="na">env</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_PASSWORD</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_USER</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">POSTGRES_DB</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="s2">"</span><span class="s">demo"</span>
+          <span class="na">volumeMounts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-storage</span>
+              <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/lib/postgresql/data</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">postgres-storage</span>
+          <span class="na">persistentVolumeClaim</span><span class="pi">:</span>
+            <span class="na">claimName</span><span class="pi">:</span> <span class="s">postgres-pvc</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_port_forwarding"><a class="anchor" href="#_port_forwarding"></a>10.2. Port Forwarding</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Port Forwarding ist eine Netzwerktechnik,
+die es ermöglicht, eingehende Datenpakete,
+die an einer bestimmten Adresse und einem externen Port ankommen,
+zu einem bestimmten Gerät und einem internen Port im privaten Netzwerk umzuleiten.
+Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch eine Firewall verborgen sind.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_12_22"><a class="anchor" href="#_2025_12_22"></a>11. 2025-12-22</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_teststrategien"><a class="anchor" href="#_teststrategien"></a>11.1. Teststrategien</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1158,7 +1229,7 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 * Gray-Box-Tests</p>
 </div>
 <div class="sect3">
-<h4 id="_testaufbau"><a class="anchor" href="#_testaufbau"></a>10.1.1. Testaufbau</h4>
+<h4 id="_testaufbau"><a class="anchor" href="#_testaufbau"></a>11.1.1. Testaufbau</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1214,10 +1285,10 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2026_01_12"><a class="anchor" href="#_2026_01_12"></a>11. 2026-01-12</h2>
+<h2 id="_2026_01_12"><a class="anchor" href="#_2026_01_12"></a>12. 2026-01-12</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_testen_des_backends"><a class="anchor" href="#_testen_des_backends"></a>11.1. Testen des Backends</h3>
+<h3 id="_testen_des_backends"><a class="anchor" href="#_testen_des_backends"></a>12.1. Testen des Backends</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1235,15 +1306,15 @@ Ein Model ist immer notwendig. Ein Model ist die Wahrheit, die reine Wahrheit un
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2026_01_20"><a class="anchor" href="#_2026_01_20"></a>12. 2026-01-20</h2>
+<h2 id="_2026_01_20_a_mahmutovic"><a class="anchor" href="#_2026_01_20_a_mahmutovic"></a>13. 2026-01-20 [A. Mahmutovic]</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_api_testing_mit_httpyac"><a class="anchor" href="#_api_testing_mit_httpyac"></a>12.1. API Testing mit httpyac</h3>
+<h3 id="_api_testing_mit_httpyac"><a class="anchor" href="#_api_testing_mit_httpyac"></a>13.1. API Testing mit httpyac</h3>
 <div class="paragraph">
 <p>Um API-Endpunkte automatisiert und reproduzierbar zu testen, verwenden wir das Tool <code>httpyac</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="_installation_und_setup"><a class="anchor" href="#_installation_und_setup"></a>12.1.1. Installation und Setup</h4>
+<h4 id="_installation_und_setup"><a class="anchor" href="#_installation_und_setup"></a>13.1.1. Installation und Setup</h4>
 <div class="paragraph">
 <p>Die Installation erfolgt lokal im Projektverzeichnis (Ordner <code>api</code>), um globale Abhängigkeiten zu vermeiden.</p>
 </div>
@@ -1259,7 +1330,7 @@ npm <span class="nb">install </span>httpyac</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_erstellen_von_requests"><a class="anchor" href="#_erstellen_von_requests"></a>12.1.2. Erstellen von Requests</h4>
+<h4 id="_erstellen_von_requests"><a class="anchor" href="#_erstellen_von_requests"></a>13.1.2. Erstellen von Requests</h4>
 <div class="paragraph">
 <p>Requests werden in einer <code>.http</code> Datei definiert. Mit <code>??</code> werden Test-Assertions direkt unter dem Request eingefügt.</p>
 </div>
@@ -1272,7 +1343,7 @@ GET http://localhost:8080/clients
 </div>
 </div>
 <div class="sect3">
-<h4 id="_automatisierung_package_json"><a class="anchor" href="#_automatisierung_package_json"></a>12.1.3. Automatisierung (package.json)</h4>
+<h4 id="_automatisierung_package_json"><a class="anchor" href="#_automatisierung_package_json"></a>13.1.3. Automatisierung (package.json)</h4>
 <div class="paragraph">
 <p>Um die Tests einfach über die CLI zu starten, wird ein Script in der <code>package.json</code> hinterlegt:</p>
 </div>
@@ -1293,19 +1364,19 @@ GET http://localhost:8080/clients
 </div>
 </div>
 <div class="sect3">
-<h4 id="_konfiguration_mit_variablen"><a class="anchor" href="#_konfiguration_mit_variablen"></a>12.1.4. Konfiguration mit Variablen</h4>
+<h4 id="_konfiguration_mit_variablen"><a class="anchor" href="#_konfiguration_mit_variablen"></a>13.1.4. Konfiguration mit Variablen</h4>
 <div class="paragraph">
 <p>Für unterschiedliche Umgebungen wird eine <code>http-client.config.js</code> erstellt. In der <code>request.http</code> kann dann die Variable <code>{{host}}</code> statt <code>localhost:8080</code> verwendet werden.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_coverage_mit_jacoco"><a class="anchor" href="#_code_coverage_mit_jacoco"></a>12.2. Code Coverage mit JaCoCo</h3>
+<h3 id="_code_coverage_mit_jacoco"><a class="anchor" href="#_code_coverage_mit_jacoco"></a>13.2. Code Coverage mit JaCoCo</h3>
 <div class="paragraph">
 <p>JaCoCo (Java Code Coverage) misst, wie viel Prozent des Codes durch Tests tatsächlich ausgeführt werden.</p>
 </div>
 <div class="sect3">
-<h4 id="_konfiguration_quarkus"><a class="anchor" href="#_konfiguration_quarkus"></a>12.2.1. Konfiguration Quarkus</h4>
+<h4 id="_konfiguration_quarkus"><a class="anchor" href="#_konfiguration_quarkus"></a>13.2.1. Konfiguration Quarkus</h4>
 <div class="paragraph">
 <p>Die Integration erfolgt über die <code>pom.xml</code> und die <code>application.properties</code>.</p>
 </div>
@@ -1328,7 +1399,7 @@ GET http://localhost:8080/clients
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ausführung"><a class="anchor" href="#_ausführung"></a>12.2.2. Ausführung</h4>
+<h4 id="_ausführung"><a class="anchor" href="#_ausführung"></a>13.2.2. Ausführung</h4>
 <div class="paragraph">
 <p>Die Reports werden beim Build-Prozess generiert:</p>
 </div>
@@ -1345,7 +1416,7 @@ java <span class="nt">-jar</span> target/<span class="k">*</span><span class="nt
 </div>
 </div>
 <div class="sect2">
-<h3 id="_test_strategie_prof_aberger"><a class="anchor" href="#_test_strategie_prof_aberger"></a>12.3. Test-Strategie (Prof. Aberger)</h3>
+<h3 id="_test_strategie_prof_aberger"><a class="anchor" href="#_test_strategie_prof_aberger"></a>13.3. Test-Strategie (Prof. Aberger)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1379,7 +1450,7 @@ java <span class="nt">-jar</span> target/<span class="k">*</span><span class="nt
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kubernetes"><a class="anchor" href="#_kubernetes"></a>12.4. Kubernetes</h3>
+<h3 id="_kubernetes_2"><a class="anchor" href="#_kubernetes_2"></a>13.4. Kubernetes</h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/kubectl.png" alt="kubectl">
@@ -1425,7 +1496,7 @@ java <span class="nt">-jar</span> target/<span class="k">*</span><span class="nt
 </div>
 </div>
 <div class="sect2">
-<h3 id="_port_forwarding"><a class="anchor" href="#_port_forwarding"></a>12.5. Port Forwarding</h3>
+<h3 id="_port_forwarding_2"><a class="anchor" href="#_port_forwarding_2"></a>13.5. Port Forwarding</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1444,7 +1515,7 @@ Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch 
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-01-26 21:38:00 UTC
+Last updated 2026-01-26 21:48:06 UTC
 </div>
 </div>
 </body>

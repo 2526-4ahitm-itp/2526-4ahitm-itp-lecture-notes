@@ -501,7 +501,9 @@ zu einem bestimmten Gerät und einem internen Port im privaten Netzwerk umzuleit
 Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch eine Firewall verborgen sind.
 
 
+== 2026-01-27
 
+image::mqtt.png[]
 
 
 

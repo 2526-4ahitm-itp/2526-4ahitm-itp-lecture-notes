@@ -503,8 +503,13 @@ Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch 
 
 == 2026-01-27
 
-image::mqtt.png[]
+image::mqtt-vs-rest.png[]
 
+.Image von Mr. Mehic
+[%collapsible]
+====
+image::mqtt.png[]
+====
 
 
 

@@ -572,6 +572,8 @@ Important Kubernetes processes run on the Master Node:
 * etcd
 ** Kubernetes backing store (key-value database)
 
+image::k8s-architecture.png[]
+
 ==== Virtual Network
 
 * Enables nodes to communicate with each other
@@ -613,6 +615,8 @@ All configuration in a Kubernetes cluster goes through the Master Node via the A
 ** YAML
 ** JSON
 * Kubernetes configuration is declarative
+
+image::k8s-conf.png[]
 
 
 

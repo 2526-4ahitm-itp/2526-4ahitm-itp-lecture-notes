@@ -511,5 +511,113 @@ image::mqtt-vs-rest.png[]
 image::mqtt.png[]
 ====
 
+== 2026-03-01 [Hanan Mehic] - https://youtu.be/VnvRFRk_51k?si=rRKB7III4LPrLDov[What ist kubernetes (Nana)]
+
+
+=== Official Definition of Kubernetes
+
+* Open source container orchestration tool
+* Developed by Google
+* Manages containers (Docker or other technologies)
+* Helps manage containerized applications in different deployment environments:
+** Physical
+** Virtual
+** Cloud
+
+=== What Problems Does Kubernetes Solve?
+
+* Trend from Monolith to Microservices
+* Increased usage of containers
+* Demand for a proper way of managing hundreds of containers
+
+=== What Features Do Orchestration Tools Offer?
+
+* High availability (no downtime)
+* Scalability and high performance
+* Disaster recovery (backup and restore)
+
+=== Kubernetes Basic Architecture
+
+A Kubernetes cluster consists of one Master Node connected to multiple Worker Nodes.
+
+Each node has *kubelet* running on it.
+
+Kubelet:
+
+* Kubernetes process
+* Enables the cluster to communicate with each node
+* Executes tasks like running application processes
+
+Each Worker Node:
+
+* Runs Docker containers of different applications
+* Hosts the running application workloads
+
+==== Master Node Components
+
+Important Kubernetes processes run on the Master Node:
+
+* API Server
+** Container
+** Entry point to the Kubernetes cluster
+** All communication goes through it
+
+* Controller Manager
+** Keeps track of what is happening in the cluster
+
+* Scheduler
+** Decides on which Worker Node a Pod should run
+** Based on available resources
+
+* etcd
+** Kubernetes backing store (key-value database)
+
+image::k8s-architecture.png[]
+
+==== Virtual Network
+
+* Enables nodes to communicate with each other
+* Creates a unified machine view across all nodes
+* Worker nodes are larger in number
+* Master Node is critical → requires backup
+* Best practice: multiple Master Nodes
+
+=== Kubernetes Basic Concepts
+
+==== Pod
+
+* Wrapper of a container
+* Multiple Pods can run on each Worker Node
+* A Pod can contain multiple containers
+* Usually one Pod per application
+* Each Pod is its own self-contained server
+* Manages containers running inside it
+* Communicates with other Pods via internal IP addresses
+
+==== Virtual Network
+
+* Assigns each Pod an IP address
+* Services replace dynamic IP addresses
+* If a Pod dies and gets recreated, the Service remains stable
+* Ensures communication between Pods
+
+==== Service
+
+* Permanent IP address
+* Load balancer
+
+=== Kubernetes Configuration
+
+All configuration in a Kubernetes cluster goes through the Master Node via the API Server.
+
+* Clients (UI or API) communicate with the API Server
+* Configuration requests are sent as:
+** YAML
+** JSON
+* Kubernetes configuration is declarative
+
+image::k8s-conf.png[]
+
+
 
 

@@ -618,6 +618,22 @@ All configuration in a Kubernetes cluster goes through the Master Node via the A
 
 image::k8s-conf.png[]
 
+== 2026-03-09 [Clemens Zangenfeind]
+
+=== Kriterien für ein gutes GUI
+
+* Ein gutes GUI soll *feedback* an den Nutzer zurückgeben.
+- Bsp.: Ein Nutzer erstellt einen neuen Listeneintrag, ein pop-up sagt dem Nutzer, dass ein neuer Eintrag erstellt wurde.
+
+* Es soll *Beschreibungen* und *Alle möglichen Interaktionen* klar darstellen.
+- Der Nutzer sieht direkt bei Aufruf der Website, wie er alle möglichen Filter auf Daten anwenden kann.
+* Der Nutzer soll wissen *wo er anfangen soll*.
+* Die *wichtigsten Daten* werden als *erstes / am größten gezeigt (Informationshirarchie)*.
+- Der Titel eines Kalendareintrags ist größer geschrieben und als erstes platziert, weitere Daten folgen danach
+
+-> Das Design eines GUIs hängt von der Zielgruppe ab
+
+TIP: UI ist das design (Aussehen), UX ist die Nutzererfahrung (Interaktionen)
 
 
 

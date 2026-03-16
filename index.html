@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-03-03</span>
+<span id="revdate">2026-03-16</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -643,6 +643,12 @@ pre.rouge .gs {
 <li><a href="#_kubernetes_configuration">15.6. Kubernetes Configuration</a></li>
 </ul>
 </li>
+<li><a href="#_2026_02_23">16. 2026-02-23</a>
+<ul class="sectlevel2">
+<li><a href="#_deployment">16.1. Deployment</a></li>
+</ul>
+</li>
+<li><a href="#_2026_03_16">17. 2026-03-16</a></li>
 </ul>
 </div>
 </div>
@@ -1832,11 +1838,98 @@ Sie ist notwendig, da Geräte in deinem privaten Netzwerk standardmäßig durch 
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_02_23"><a class="anchor" href="#_2026_02_23"></a>16. 2026-02-23</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_deployment"><a class="anchor" href="#_deployment"></a>16.1. Deployment</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Wohin kann man Applikationen deployen?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud-Provider: AWS, Azure, Google Cloud, &#8230;&#8203; &#8594; k8s</p>
+</li>
+<li>
+<p>Docker:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>vm</p>
+</li>
+<li>
+<p>bare-metal</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Grundregeln bei Docker-Containern/Images:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Container sollten so klein wie möglich sein (Single Responsibility Principle)</p>
+</li>
+<li>
+<p>Nach Möglichkeit sollen keine eigenen Images mit Dockerfile erstellt werden, sondern offizielle Images konfiguriert werden (z.B. postgres, redis, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Grundregeln für Keycloak:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Immer einen eigenen Realm erstellen und nicht den Master Realm verwenden.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_16"><a class="anchor" href="#_2026_03_16"></a>17. 2026-03-16</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/svg.png" alt="svg" width="848" height="893">
+</div>
+</div>
+<div class="paragraph">
+<p>3.LF Stoffumfang:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>UML (CLD, OD, Deployment Diagramm, &#8230;&#8203;)</p>
+</li>
+<li>
+<p>IAM-Systeme</p>
+</li>
+<li>
+<p>Deployment (Docker, Kubernetes, CI/CD, gh-action)</p>
+</li>
+<li>
+<p>Agentisches Programmieren</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-03-03 13:10:31 UTC
+Last updated 2026-03-16 11:43:52 UTC
 </div>
 </div>
 </body>

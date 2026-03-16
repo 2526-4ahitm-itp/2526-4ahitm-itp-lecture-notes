@@ -511,5 +511,84 @@ image::mqtt-vs-rest.png[]
 image::mqtt.png[]
 ====
 
+== 2026-02-23
+
+
+=== Deployment
+
+* Wohin kann man Applikationen deployen?
+
+** Cloud-Provider: AWS, Azure, Google Cloud, ... -> k8s
+** Docker:
+*** vm
+*** bare-metal
+
+
+* Grundregeln bei Docker-Containern/Images:
+
+** Container sollten so klein wie möglich sein (Single Responsibility Principle)
+** Nach Möglichkeit sollen keine eigenen Images mit Dockerfile erstellt werden, sondern offizielle Images konfiguriert werden (z.B. postgres, redis, ...)
+
+* Grundregeln für Keycloak:
+
+** Immer einen eigenen Realm erstellen und nicht den Master Realm verwenden.
+
+== 2026-03-16
+
+
+[plantuml, svg]
+----
+@startmindmap
+* ITP 4Jg.
+**[#orange] Automatisierte Tests
+***[#orange] Teststrategien
+****[#orange]_ Grenzwertanalyse
+****[#orange]_ Äquivalenzklassenanalyse
+**[#orange] TDD
+**[#orange] Deployment CI/CD
+***[#orange] docker compose
+***[#orange] k8s
+****[#orange]_ Komponenten von k8s
+****[#orange]_ Struktur eines yaml-Konfigurationsfiles
+**[#orange] ui/ux
+**[#orange] uml
+***[#orange] class diagram
+***[#orange] object diagram
+***[#orange] ...
+**[#orange] scrum
+**[#orange] git
+***[#orange] github-actions
+**[#orange] docker (3,jg)
+**[#orange] IAM-System
+***[#orange] keycloak
+****[#orange]_ Realms, Clients, Users, Roles, Groups
+****[#orange]_ RBAC, PBAC
+***[#orange] OAuth2, OpenID Connect, SAML
+***[#orange] Arten von Token
+***[#orange] Arten der Authentifizierung
+****[#orange]_ SSO, WebAuthn, 2-Factor-Authentication, ...
+**[#orange] AI
+***[#orange] Agentisches Programmieren
+****[#orange]_ Vorgehensweise (Fachspezifikation, Design)
+****[#orange]_ Was ist der Context?
+***[#orange] MCP
+***[#orange] N8N u ähnliche Tools
+@endmindmap
+----
+
+3.LF Stoffumfang:
+
+* UML (CLD, OD, Deployment Diagramm, ...)
+* IAM-Systeme
+* Deployment (Docker, Kubernetes, CI/CD, gh-action)
+* Agentisches Programmieren
+
+
+
+
+
+
+
+
 
 

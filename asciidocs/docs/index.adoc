@@ -692,9 +692,11 @@ image::k8s-conf.png[]
 * Agentisches Programmieren
 
 
+== 2026-03-17
 
+Für jedes Teammitglied sind Zeitaufzeichnungen den Projekten zu führen:
 
-
+* zB in https://clockify.me/
 
 
 

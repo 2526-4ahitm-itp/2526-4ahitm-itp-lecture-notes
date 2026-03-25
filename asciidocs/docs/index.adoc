@@ -698,7 +698,15 @@ Für jedes Teammitglied sind Zeitaufzeichnungen den Projekten zu führen:
 
 * zB in https://clockify.me/
 
+== 2026-03-24
 
+* Prof. Aberger demonstriert agentisches Programmieren mit Claude und Gemini
 
+** Es wird eine Checklist erstellt, die durch das LLM abgearbeitet wird.
 
+** https://openspec.dev[openspec]
+** https://jsdoc.app/[jsdoc^]
 
+** Es wird angemerkt, dass Grundlagen des Programmierens tw. fehlen:
+*** zB Java: https://www.happycoders.eu/java/virtual-threads/[Virtuelle Threads^]
+*** zB JS: https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM[Shadow DOM^], https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements[Custom Elements^], ...

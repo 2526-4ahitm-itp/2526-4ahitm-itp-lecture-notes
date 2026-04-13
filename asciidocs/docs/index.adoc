@@ -779,3 +779,165 @@ Für jedes Teammitglied sind Zeitaufzeichnungen den Projekten zu führen:
 ** Es wird angemerkt, dass Grundlagen des Programmierens tw. fehlen:
 *** zB Java: https://www.happycoders.eu/java/virtual-threads/[Virtuelle Threads^]
 *** zB JS: https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM[Shadow DOM^], https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements[Custom Elements^], ...
+
+== 2026-04-13 [Hanan Mehic]
+
+=== Grundprinzip von LLMs
+
+Large Language Models (LLMs) arbeiten auf Basis von *Tokenisierung* und *Vektorraummodellen*.
+
+* Texte werden in Tokens zerlegt (Wörter / Wortteile)
+* Tokens werden in Vektoren umgewandelt
+* Bedeutung entsteht durch Ähnlichkeit im Vektorraum
+
+==== Wichtige Konsequenzen
+
+* Rechtschreibfehler -> andere Tokens -> schlechtere Ergebnisse
+* Präzision im Prompt -> bessere Vektor-Ausrichtung
+* Kontext bestimmt die Interpretation
+
+=== Mathematische Intuition
+
+==== Ähnlichkeit von Bedeutungen (Cosinus)
+
+[stem]
+++++
+cos(\theta) = (a · b) / (|a| * |b|)
+++++
+
+* cos(θ) ~ 1 -> gleiche Richtung -> gleiche Bedeutung
+* cos(θ) ~ 0 -> unabhängig
+* cos(θ) ~ -1 -> gegensätzlich
+
+image::../images/vektor-cos.png[]
+
+Ziel beim Prompting:
+*Prompt-Vektor ~ Ziel-Vektor*
+
+==== “Tal”-Metapher (LLM-Verhalten)
+
+* LLM verhält sich wie eine Landschaft (Loss Landscape)
+* Ziel = Minimum (Tal)
+* Antworten "rollen" Richtung sinnvollster Lösung
+
+image::../images/loss-landscape.png[]
+Gute Prompts = bessere Richtung ins Tal
+
+==== Prompt als quadratische Funktion
+
+
+
+* Scheitelpunkt = optimale Antwort (Ziel)
+* Startpunkt = Prompt
+* Je präziser der Prompt -> desto direkter zum Minimum
+
+image::../images/quadratische-fkt.png[]
+
+=== Prompt Engineering
+
+==== Ziel
+
+Maximale Alignment zwischen:
+
+* Prompt
+* gewünschtem Output
+
+==== Prinzipien
+
+* Klarheit > Kreativität
+* Strukturierte Inputs (z. B. Markdown)
+* Kontext vollständig angeben
+* Keine unnötigen Informationen
+
+==== Fehlerquellen
+
+* Rechtschreibfehler (Token-Verlust)
+* Unklare Anforderungen
+* Fehlender Kontext
+
+=== Kontext (Context Engineering)
+
+Kontext = alles, was das Modell über das Problem weiß
+
+==== Beispiele
+
+* Projektstruktur
+* Anforderungen
+* bestehender Code
+* Zielbeschreibung
+
+==== Wichtig
+
+* Kontext wird gewichtet interpretiert
+* Falsche Gewichtung -> falsche Priorisierung
+
+Tipp:
+Dinge als Kommentar markieren -> weniger Gewicht (z. B. "nur Idee")
+
+=== AI Spec-Driven Development
+
+==== Grundidee
+
+* Entwicklung basiert auf Spezifikationen statt Code
+* LLM generiert Code aus Specs
+
+==== OpenSpec
+
+* Definiert, wie Spezifikationen aufgebaut sind
+* Ziel: standardisierte Kommunikation mit LLMs
+
+==== Change Requests
+
+Wenn sich Anforderungen ändern:
+
+* Neue Fragen klären
+* Spezifikation anpassen
+* LLM erneut ausführen
+
+Iterativer Prozess
+
+=== Skills
+
+Ein *Skill* = spezialisierter Prompt mit Bedingungen
+
+==== Eigenschaften
+
+* Hat Header (wann wird er verwendet)
+* Wird nur ausgeführt, wenn Kontext passt
+* Kann enthalten:
+** Prompts
+** Shell-Skripte
+** Anweisungen
+
+Vorteile:
+
+* Wiederverwendbarkeit
+* Modularität
+
+=== Projektkontexte
+
+==== Brownfield
+
+* Bestehendes Projekt
+* Erweiterung / Anpassung
+
+==== Greenfield
+
+* Neues Projekt
+* Keine Altlasten
+
+image::../images/greenfield-brownfield.png[]
+
+Wichtig für LLM:
+Kontext unterscheidet sich stark
+
+
+=== Risiken
+
+==== YOLO-Mods
+
+* Unsichere Änderungen
+* Kein Verständnis der Auswirkungen
+
+
+

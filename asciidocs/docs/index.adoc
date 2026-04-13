@@ -637,6 +637,59 @@ TIP: UI ist das design (Aussehen), UX ist die Nutzererfahrung (Interaktionen)
 
 == 2026-02-23
 
+== 2026-03-09 - User Interface [Simone Sperrer]
+=== Kriterien für eine gute GUI
+* Dashboard: Informationen auch ohne ausgeführter Aktion
+* Es ist ersichtlich, welche Aktionen möglich sind
+* Dem User alle Daten sichtbar machen, die ihn interessieren könnten
+* Startseite: Ein gesamter Überblick
+* Bei ausgeführten Aktionen: Feedback über Erfolg oder Fehler (User-Feedback)
+* Symbole Verwenden (z.B. Zahlungsoptionen)
+* Pflichtfelder markieren
+* Wichtige Informationen hervorheben (Farben, Schriftgröße, ...)
+* Mann sollte nicht mehr wie zwei Schriftarten verwenden
+* Cookies mit einem Klick akzeptieren oder ablehnen können
+* Make your links look like links
+* Konsistente Gestaltung
+
+
+=== User Interface Elemente
+* *Buttons*
+* *Checkboxen*
+** Man kann mehrere Optionen auswählen
+* *Radio Buttons*
+** Man kann nur eine Option auswählen
+* *Comboboxen*
+** Eine Combobox ist ein Eingabefeld, in dem man tippen, suchen und oft aus einer Liste auswählen kann (ein- oder mehrfach).
+* *Dropdown*
+**  Ein Dropdown ist eine Liste, die sich öffnet und nur die Auswahl eines vordefinierten, einzelnen Wertes erlaubt.
+* T**oggle Switch**
+** Man sieht sehr gut welche Optionen ausgewählt sind
+* *Slider*
+** Man bekommt mit einem Blick ein gutes User-Feedback über den noch verfügbaren Spielraum
+* *Date Picker*
+* *Popups*
+* *Menu Bars*
+* *Wizard*
+** unterteilt komplexe Prozesse in mehrere Schritte, um die Benutzer zu zeigen in welchem Schritt sie sich befindet
+
+=== Was versteht man unter Informationshierarchie?
+Informationshierarchie ist die strukturierte Anordnung und Priorisierung von Inhalten,
+um Nutzern das Verständnis und das schnelle Auffinden von Informationen zu erleichtern.
+
+=== UI Vs. UX
+* *UI (User Interface)* bezieht sich auf die Gestaltung der Benutzeroberfläche,
+also wie die Elemente angeordnet sind, welche Farben verwendet werden,
+welche Schriftarten, ...
+* *UX (User Experience)* bezieht sich auf die Gesamterfahrung des Nutzers,
+einschließlich der Benutzerfreundlichkeit, der Effizienz und der Zufriedenheit.
+
+=== Serif Vs. Sans-serif
+* *Serif-Schriften* (mit Füßchen) sind ideal für gedruckte,
+lange Texte (Bücher, Zeitungen), da sie die Zeilenführung unterstützen und klassisch/seriös wirken.
+* *Sans-Serif-Schriften* (ohne Serifen) eignen sich besser für Bildschirme,
+kurze Texte, Überschriften und moderne, minimalistische Designs (Websites, Apps, Logos).
+
 
 === Deployment
 

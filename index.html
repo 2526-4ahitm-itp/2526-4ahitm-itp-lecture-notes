@@ -662,6 +662,18 @@ pre.rouge .gs {
 <li><a href="#_2026_03_16">19. 2026-03-16</a></li>
 <li><a href="#_2026_03_17">20. 2026-03-17</a></li>
 <li><a href="#_2026_03_24">21. 2026-03-24</a></li>
+<li><a href="#_2026_04_13_hanan_mehic">22. 2026-04-13 [Hanan Mehic]</a>
+<ul class="sectlevel2">
+<li><a href="#_grundprinzip_von_llms">22.1. Grundprinzip von LLMs</a></li>
+<li><a href="#_mathematische_intuition">22.2. Mathematische Intuition</a></li>
+<li><a href="#_prompt_engineering">22.3. Prompt Engineering</a></li>
+<li><a href="#_kontext_context_engineering">22.4. Kontext (Context Engineering)</a></li>
+<li><a href="#_ai_spec_driven_development">22.5. AI Spec-Driven Development</a></li>
+<li><a href="#_skills">22.6. Skills</a></li>
+<li><a href="#_projektkontexte">22.7. Projektkontexte</a></li>
+<li><a href="#_risiken">22.8. Risiken</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -2227,11 +2239,378 @@ kurze Texte, Überschriften und moderne, minimalistische Designs (Websites, Apps
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_04_13_hanan_mehic"><a class="anchor" href="#_2026_04_13_hanan_mehic"></a>22. 2026-04-13 [Hanan Mehic]</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_grundprinzip_von_llms"><a class="anchor" href="#_grundprinzip_von_llms"></a>22.1. Grundprinzip von LLMs</h3>
+<div class="paragraph">
+<p>Large Language Models (LLMs) arbeiten auf Basis von <strong>Tokenisierung</strong> und <strong>Vektorraummodellen</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Texte werden in Tokens zerlegt (Wörter / Wortteile)</p>
+</li>
+<li>
+<p>Tokens werden in Vektoren umgewandelt</p>
+</li>
+<li>
+<p>Bedeutung entsteht durch Ähnlichkeit im Vektorraum</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_wichtige_konsequenzen"><a class="anchor" href="#_wichtige_konsequenzen"></a>22.1.1. Wichtige Konsequenzen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Rechtschreibfehler &#8594; andere Tokens &#8594; schlechtere Ergebnisse</p>
+</li>
+<li>
+<p>Präzision im Prompt &#8594; bessere Vektor-Ausrichtung</p>
+</li>
+<li>
+<p>Kontext bestimmt die Interpretation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mathematische_intuition"><a class="anchor" href="#_mathematische_intuition"></a>22.2. Mathematische Intuition</h3>
+<div class="sect3">
+<h4 id="_ähnlichkeit_von_bedeutungen_cosinus"><a class="anchor" href="#_ähnlichkeit_von_bedeutungen_cosinus"></a>22.2.1. Ähnlichkeit von Bedeutungen (Cosinus)</h4>
+<div class="stemblock">
+<div class="content">
+\$cos(\theta) = (a · b) / (|a| * |b|)\$
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>cos(θ) ~ 1 &#8594; gleiche Richtung &#8594; gleiche Bedeutung</p>
+</li>
+<li>
+<p>cos(θ) ~ 0 &#8594; unabhängig</p>
+</li>
+<li>
+<p>cos(θ) ~ -1 &#8594; gegensätzlich</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/vektor-cos.png" alt="vektor cos">
+</div>
+</div>
+<div class="paragraph">
+<p>Ziel beim Prompting:
+<strong>Prompt-Vektor ~ Ziel-Vektor</strong></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tal_metapher_llm_verhalten"><a class="anchor" href="#_tal_metapher_llm_verhalten"></a>22.2.2. “Tal”-Metapher (LLM-Verhalten)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>LLM verhält sich wie eine Landschaft (Loss Landscape)</p>
+</li>
+<li>
+<p>Ziel = Minimum (Tal)</p>
+</li>
+<li>
+<p>Antworten "rollen" Richtung sinnvollster Lösung</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loss-landscape.png" alt="loss landscape">
+</div>
+</div>
+<div class="paragraph">
+<p>Gute Prompts = bessere Richtung ins Tal</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_prompt_als_quadratische_funktion"><a class="anchor" href="#_prompt_als_quadratische_funktion"></a>22.2.3. Prompt als quadratische Funktion</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Scheitelpunkt = optimale Antwort (Ziel)</p>
+</li>
+<li>
+<p>Startpunkt = Prompt</p>
+</li>
+<li>
+<p>Je präziser der Prompt &#8594; desto direkter zum Minimum</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/quadratische-fkt.png" alt="quadratische fkt">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prompt_engineering"><a class="anchor" href="#_prompt_engineering"></a>22.3. Prompt Engineering</h3>
+<div class="sect3">
+<h4 id="_ziel"><a class="anchor" href="#_ziel"></a>22.3.1. Ziel</h4>
+<div class="paragraph">
+<p>Maximale Alignment zwischen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prompt</p>
+</li>
+<li>
+<p>gewünschtem Output</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_prinzipien"><a class="anchor" href="#_prinzipien"></a>22.3.2. Prinzipien</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Klarheit &gt; Kreativität</p>
+</li>
+<li>
+<p>Strukturierte Inputs (z. B. Markdown)</p>
+</li>
+<li>
+<p>Kontext vollständig angeben</p>
+</li>
+<li>
+<p>Keine unnötigen Informationen</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fehlerquellen"><a class="anchor" href="#_fehlerquellen"></a>22.3.3. Fehlerquellen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Rechtschreibfehler (Token-Verlust)</p>
+</li>
+<li>
+<p>Unklare Anforderungen</p>
+</li>
+<li>
+<p>Fehlender Kontext</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kontext_context_engineering"><a class="anchor" href="#_kontext_context_engineering"></a>22.4. Kontext (Context Engineering)</h3>
+<div class="paragraph">
+<p>Kontext = alles, was das Modell über das Problem weiß</p>
+</div>
+<div class="sect3">
+<h4 id="_beispiele"><a class="anchor" href="#_beispiele"></a>22.4.1. Beispiele</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Projektstruktur</p>
+</li>
+<li>
+<p>Anforderungen</p>
+</li>
+<li>
+<p>bestehender Code</p>
+</li>
+<li>
+<p>Zielbeschreibung</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_wichtig"><a class="anchor" href="#_wichtig"></a>22.4.2. Wichtig</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Kontext wird gewichtet interpretiert</p>
+</li>
+<li>
+<p>Falsche Gewichtung &#8594; falsche Priorisierung</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tipp:
+Dinge als Kommentar markieren &#8594; weniger Gewicht (z. B. "nur Idee")</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ai_spec_driven_development"><a class="anchor" href="#_ai_spec_driven_development"></a>22.5. AI Spec-Driven Development</h3>
+<div class="sect3">
+<h4 id="_grundidee"><a class="anchor" href="#_grundidee"></a>22.5.1. Grundidee</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Entwicklung basiert auf Spezifikationen statt Code</p>
+</li>
+<li>
+<p>LLM generiert Code aus Specs</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_openspec"><a class="anchor" href="#_openspec"></a>22.5.2. OpenSpec</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Definiert, wie Spezifikationen aufgebaut sind</p>
+</li>
+<li>
+<p>Ziel: standardisierte Kommunikation mit LLMs</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_change_requests"><a class="anchor" href="#_change_requests"></a>22.5.3. Change Requests</h4>
+<div class="paragraph">
+<p>Wenn sich Anforderungen ändern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Neue Fragen klären</p>
+</li>
+<li>
+<p>Spezifikation anpassen</p>
+</li>
+<li>
+<p>LLM erneut ausführen</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Iterativer Prozess</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_skills"><a class="anchor" href="#_skills"></a>22.6. Skills</h3>
+<div class="paragraph">
+<p>Ein <strong>Skill</strong> = spezialisierter Prompt mit Bedingungen</p>
+</div>
+<div class="sect3">
+<h4 id="_eigenschaften"><a class="anchor" href="#_eigenschaften"></a>22.6.1. Eigenschaften</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Hat Header (wann wird er verwendet)</p>
+</li>
+<li>
+<p>Wird nur ausgeführt, wenn Kontext passt</p>
+</li>
+<li>
+<p>Kann enthalten:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prompts</p>
+</li>
+<li>
+<p>Shell-Skripte</p>
+</li>
+<li>
+<p>Anweisungen</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vorteile:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wiederverwendbarkeit</p>
+</li>
+<li>
+<p>Modularität</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_projektkontexte"><a class="anchor" href="#_projektkontexte"></a>22.7. Projektkontexte</h3>
+<div class="sect3">
+<h4 id="_brownfield"><a class="anchor" href="#_brownfield"></a>22.7.1. Brownfield</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Bestehendes Projekt</p>
+</li>
+<li>
+<p>Erweiterung / Anpassung</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_greenfield"><a class="anchor" href="#_greenfield"></a>22.7.2. Greenfield</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Neues Projekt</p>
+</li>
+<li>
+<p>Keine Altlasten</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/greenfield-brownfield.png" alt="greenfield brownfield">
+</div>
+</div>
+<div class="paragraph">
+<p>Wichtig für LLM:
+Kontext unterscheidet sich stark</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_risiken"><a class="anchor" href="#_risiken"></a>22.8. Risiken</h3>
+<div class="sect3">
+<h4 id="_yolo_mods"><a class="anchor" href="#_yolo_mods"></a>22.8.1. YOLO-Mods</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Unsichere Änderungen</p>
+</li>
+<li>
+<p>Kein Verständnis der Auswirkungen</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-13 19:16:35 UTC
+Last updated 2026-04-13 19:17:59 UTC
 </div>
 </div>
 </body>
